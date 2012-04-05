@@ -2367,7 +2367,7 @@ class A2Billing {
                 }
 
 				if (strlen($cid_sanitized)>0) {
-					$agi->set_callerid($cid_sanitized);
+					$agi->set_callerid(str_replace($this->cardnumber, '', $cid_sanitized));
 					$this -> debug( DEBUG, $agi, __FILE__, __LINE__, "[EXEC SetCallerID : ".$cid_sanitized."]");
 				} else {
 					$this -> debug( DEBUG, $agi, __FILE__, __LINE__, "[CANNOT SetCallerID : cid_san is empty]");
